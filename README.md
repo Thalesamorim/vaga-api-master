@@ -82,3 +82,11 @@ Antes de começar, você precisa ter o seguinte instalado em sua máquina:
 
 A documentação da API está disponível através do Swagger. Você pode acessá-la em `http://localhost:3000/docs`.
 
+## Autores
+***Larissa Gomes***
+
+***[Daniel Silva ](https://www.linkedin.com/in/daniel-silva-840b0b242/)***
+
+***Laine Souza***
+
+***Carlos Crispim***
