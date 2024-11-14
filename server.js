@@ -27,20 +27,15 @@ app.get("/alunos", async (req, res) => {
 });
 
 app.delete("/alunos/:id", async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   try {
-  const result = await remove(id);
-  res.json(result);
-  } catch (erггог) {
-  if (error.message === "Aluno não encontrado") {
-  res.status(404).json({ message: error.message });
-   } else {
-  res
-  .status(500)
-  .json({ message: "Erro ao remover aluno", error: error.message });
-     }
+    const result = await remove(id);
+    res.json(result);
+  } catch (error) {
+    if (error.message === "Aluno não encontrado") {
+      res.status(404).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: "Erro ao remover aluno", error: error.message });
     }
-  });
-  app.listen(port, () => {
-  console.log('Server started on port ${port}');
-   });
+  }
+});
