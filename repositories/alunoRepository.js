@@ -14,8 +14,7 @@ function create({ nome, email, nome_curso }) {
     };
     alunos.push(aluno);
     return { id, nome, email, nome_curso };
-  }
-
+}
 
 function findAll() {
   return new Promise((resolve, reject) => {
@@ -36,7 +35,7 @@ function remove(id) {
     const sql = "DELETE FROM alunos WHERE id=?";
     db.get("SELECT * FROM alunos WHERE id=?", [id], (err, aluno) => {
       if (err) {
-        console.error(err.message);
+        console.error("Erro ao verificar aluno no banco de dados:", err.message);
         return reject(err);
       }
       if (!aluno) {
@@ -44,7 +43,7 @@ function remove(id) {
       }
       db.run(sql, [id], (err) => {
         if (err) {
-          console.error(err.message);
+          console.error("Erro ao remover aluno do banco de dados:", err.message);
           return reject(err);
         }
         resolve({ message: "Aluno removido com sucesso" });
@@ -67,4 +66,3 @@ function update(id, { nome, email, nome_curso }) {
   alunos[index] = updatedAluno;
   return updatedAluno;
 }
-
